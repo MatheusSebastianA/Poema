@@ -35,7 +35,7 @@ int main(int argc, char *argv[]){
     while (letra != EOF){
         printf ("%c", letra);		
         letra = fgetc (arq_dst) ;
-  }
+    }
  
 
     fclose(arq);
