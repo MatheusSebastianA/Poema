@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
         letra = fgetc (arq_dst) ;
     }
  
-
+    fclose(arq_dst);
     fclose(arq);
     return 0;
 }   
