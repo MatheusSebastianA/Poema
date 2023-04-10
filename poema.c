@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 int main(int argc, char *argv[]){
     int posi;
     char letra;
@@ -14,7 +15,7 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    arq_dst = fopen("saida.txt", "w");
+    arq_dst = fopen("saida.txt", "w+");
 
     if(!arq_dst){
         perror("Arquivo não foi aberto");
@@ -28,6 +29,14 @@ int main(int argc, char *argv[]){
         fprintf(arq_dst, "%c", letra);
         fread(&posi, sizeof(int), 1, arq);
     }
+
+    rewind(arq_dst);
+    letra = fgetc (arq_dst);
+    while (letra != EOF){
+        printf ("%c", letra);		
+        letra = fgetc (arq_dst) ;
+  }
+ 
 
     fclose(arq);
     return 0;
